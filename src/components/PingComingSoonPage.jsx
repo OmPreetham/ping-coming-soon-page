@@ -4,10 +4,44 @@ import {
   faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useState } from 'react'
 
 const PingComingSoonPage = () => {
   // TODO: Implement Validation functionality using React
-  // TODO: Style Validation Status Styles in CSS
+
+  const [email, setEmail] = useState('')
+  const [error, setError] = useState(false)
+  const [notify, setNotify] = useState(false)
+
+  console.log(email)
+
+  const EMAIL_REGEX = /\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b/
+
+  const toggleEmailChange = (value) => {
+    setEmail(value)
+    validateEmail(value)
+  }
+
+  const validateEmail = (email) => {
+    if (email.match(EMAIL_REGEX)) {
+      setError(false)
+      return true
+    }
+    setError(true)
+    setNotify(false)
+    return false
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+
+    if (validateEmail(email)) {
+      setNotify(true)
+      setEmail('')
+      return
+    }
+    setNotify(false)
+  }
 
   return (
     <div className="wrapper">
@@ -29,17 +63,33 @@ const PingComingSoonPage = () => {
                 </div>
               </article>
               <article>
-                <div className="form-wrapper">
+                <div onSubmit={handleSubmit} className="form-wrapper">
                   <form action="/">
                     <label htmlFor="email">Email</label>
                     <input
+                      className={`${error && 'input-error'}`}
+                      onChange={(e) => toggleEmailChange(e.target.value)}
                       type="email"
                       id="email"
+                      value={email}
                       name="email"
                       placeholder="Your email address..."
                     />
                     <button type="submit">Notify me</button>
                   </form>
+                  {error && (
+                    <p className="email-error">
+                      <i>Please provide a valid email address</i>
+                    </p>
+                  )}
+                  {notify && (
+                    <p className="notify-email">
+                      <i>
+                        Thank you for subscribing. You'll get a notification to
+                        your email when the product is launched
+                      </i>
+                    </p>
+                  )}
                 </div>
               </article>
             </div>

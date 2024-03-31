@@ -10,12 +10,14 @@
   /* Secondary */
 
   --secondary-pale-blue: hsl(223, 100%, 88%);
+  --secondary-light-blue: hsla(223, 87%, 63%, 0.745);
   --secondary-bright-red: hsl(354, 100%, 66%);
 
   /* Neutral */
 
   --neutral-gray: hsl(0, 0%, 59%);
   --neutral-very-dark-blue: hsl(209, 33%, 12%);
+  --neutral-dark-blue: hsla(219, 71%, 73%, 0.461);
 
   /* Typography */
 
@@ -27,6 +29,7 @@
 
   --fw-200: 200;
   --fw-300: 300;
+  --fw-500: 500;
   --fw-600: 600;
   --fw-700: 700;
 
@@ -119,11 +122,12 @@ body {
   text-align: center;
 
   display: flex;
+  align-items: center;
   justify-content: center;
 }
 
 .wrapper {
-  margin-top: 3.2rem;
+  margin-block: 1.5rem;
 
   display: flex;
   flex-direction: column;
@@ -131,6 +135,10 @@ body {
 
   max-width: 550px;
   padding-inline: 1rem;
+}
+
+header {
+  margin-top: 1.5rem;
 }
 
 h1 {
@@ -145,7 +153,7 @@ h1 span {
 .layout-wrapper {
   display: flex;
   flex-direction: column;
-  gap: 3.65rem;
+  gap: 2.5rem;
 
   width: 100%;
 }
@@ -194,9 +202,20 @@ input {
   flex: 1;
 
   border: 1px solid var(--secondary-pale-blue);
+
   border-radius: 30px;
 
   padding-left: 4%;
+
+  font-size: 0.8rem;
+  color: var(--neutral-very-dark-blue);
+
+  outline: none;
+}
+
+.input-error {
+  border: 0;
+  outline: 1px solid var(--secondary-bright-red);
 }
 
 input::placeholder {
@@ -211,14 +230,38 @@ button {
   border-radius: 30px;
 
   font-size: 0.69rem;
+  font-weight: var(--fw-500);
   text-transform: capitalize;
   color: white;
 
   padding: 1em 3.7em;
 
-  box-shadow: 0 5px 10px rgba(135, 170, 235, 0.461);
+  box-shadow: 0 5px 10px var(--neutral-dark-blue);
 
   cursor: pointer;
+}
+
+button:focus,
+button:active,
+button:hover {
+  background-color: var(--secondary-light-blue);
+}
+
+.email-error,
+.notify-email {
+  margin-top: 0.3rem;
+  margin-left: 1rem;
+
+  text-align: left;
+  font-size: 0.54rem;
+}
+
+.email-error {
+  color: var(--secondary-bright-red);
+}
+
+.notify-email {
+  color: var(--primary-blue);
 }
 
 .footer-wrapper {
@@ -256,14 +299,6 @@ svg:active {
 }
 
 @media screen and (max-width: 600px) {
-  body {
-    margin-block: 3.2rem;
-  }
-
-  .wrapper {
-    margin-top: 0;
-  }
-
   form {
     flex-direction: column;
 

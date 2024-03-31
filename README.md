@@ -8,15 +8,15 @@ Desktop
 
 ![Desktop Preview](/public/preview-desktop.png)
 
-![Desktop Preview Valid](/public/preview-desktop-valid.png)
+![Desktop Preview Error](/public/preview-desktop-error.png)
 
-![Desktop Preview Subscribed](/public/preview-desktop-subscribed.png)
+![Desktop Preview Valid](/public/preview-desktop-valid.png)
 
 Mobile
 
 ![Mobile Preview](/public/preview-mobile.png)
 
-![Mobile Preview Error](/public/preview-mobile-error.png)
+![Mobile Preview Notify](/public/preview-mobile-notify.png)
 
 ## Getting Started
 
