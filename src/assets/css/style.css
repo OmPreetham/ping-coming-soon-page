@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  /* Colors */
+
+  /* Primary */
+
+  --primary-blue: hsl(223, 87%, 63%);
+
+  /* Secondary */
+
+  --secondary-pale-blue: hsl(223, 100%, 88%);
+  --secondary-bright-red: hsl(354, 100%, 66%);
+
+  /* Neutral */
+
+  --neutral-gray: hsl(0, 0%, 59%);
+  --neutral-very-dark-blue: hsl(209, 33%, 12%);
+
+  /* Typography */
+
+  /* Font Sizes */
+
+  --fs-root: 1.2rem;
+
+  /* Font Weights */
+
+  --fw-200: 200;
+  --fw-300: 300;
+  --fw-600: 600;
+  --fw-700: 700;
+
+  /* Font Family */
+
+  --ff: 'Libre Franklin', sans-serif;
+}
+
+/* CSS Resets */
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* General Styling */
+
+html {
+  font-size: var(--fs-root);
+  font-family: var(--ff);
+}
+
+body {
+  max-width: 1440px;
+  min-width: 360px;
+  min-height: 100vh;
+
+  margin-inline: auto;
+
+  background-color: white;
+
+  text-align: center;
+
+  display: flex;
+  justify-content: center;
+}
+
+.wrapper {
+  margin-top: 3.2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+
+  max-width: 550px;
+  padding-inline: 1rem;
+}
+
+h1 {
+  font-size: 1.35rem;
+  color: var(--neutral-very-dark-blue);
+}
+
+h1 span {
+  color: var(--primary-blue);
+}
+
+.layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3.65rem;
+
+  width: 100%;
+}
+
+.announcement-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.title-wrapper p:nth-of-type(1) {
+  color: var(--neutral-gray);
+
+  font-weight: var(--fw-200);
+  font-size: 2.05rem;
+
+  margin-bottom: 0.3rem;
+}
+
+.title-wrapper p:nth-of-type(1) span {
+  font-weight: var(--fw-700);
+  color: var(--neutral-very-dark-blue);
+}
+
+.title-wrapper p:nth-of-type(2) {
+  font-size: 0.85rem;
+  color: var(--neutral-very-dark-blue);
+}
+
+.form-wrapper {
+  display: block;
+
+  margin-inline: auto;
+}
+
+label {
+  display: none;
+}
+
+form {
+  display: flex;
+  gap: 0.7rem;
+}
+
+input {
+  flex: 1;
+
+  border: 1px solid var(--secondary-pale-blue);
+  border-radius: 30px;
+
+  padding-left: 4%;
+}
+
+input::placeholder {
+  font-size: 0.7rem;
+  color: var(--secondary-pale-blue);
+}
+
+button {
+  background-color: var(--primary-blue);
+
+  border: none;
+  border-radius: 30px;
+
+  font-size: 0.69rem;
+  text-transform: capitalize;
+  color: white;
+
+  padding: 1em 3.7em;
+
+  box-shadow: 0 5px 10px rgba(135, 170, 235, 0.461);
+
+  cursor: pointer;
+}
+
+.footer-wrapper {
+  margin-top: 2rem;
+  color: var(--neutral-gray);
+}
+
+.social-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.copyright-wrapper {
+  margin-top: 1rem;
+
+  font-size: 0.5rem;
+}
+
+svg {
+  color: var(--primary-blue);
+  border: 1px solid var(--secondary-pale-blue);
+  border-radius: 50%;
+  width: 10px;
+  min-height: 10px;
+  padding: 0.1em 0.3em;
+  cursor: pointer;
+}
+
+svg:focus,
+svg:hover,
+svg:active {
+  color: white;
+  background-color: var(--primary-blue);
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    margin-block: 3.2rem;
+  }
+
+  .wrapper {
+    margin-top: 0;
+  }
+
+  form {
+    flex-direction: column;
+
+    margin-inline: auto;
+
+    width: 90%;
+  }
+
+  input {
+    padding: 0.4em;
+    padding-left: 10%;
+  }
+}
