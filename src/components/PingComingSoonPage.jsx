@@ -97,7 +97,7 @@ const PingComingSoonPage = () => {
           <section>
             <div className="hero-wrapper">
               <img
-                src="/images/illustration-dashboard.png"
+                src="images/illustration-dashboard.png"
                 alt="Dashboard Illustration"
               />
             </div>
